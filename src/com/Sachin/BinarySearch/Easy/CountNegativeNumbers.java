@@ -40,7 +40,7 @@ public class CountNegativeNumbers {
                                             // we already counted that, so now we will search for the same in the row above the current
                                             // row
             }
-            else if(arr[row][column] >=0){  // will execute if no. is +ve
+            else {  // will execute if no. is +ve
                 column++;                   // we don't care about +ve no.s therefore simply increment our column
             }
         }
