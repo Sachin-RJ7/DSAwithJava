@@ -1,10 +1,29 @@
 package com.Sachin.BinarySearch.Easy;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class checkIfExit {
     public static void main(String[] args) {
         int[] arr = {-20, 8, -6, -14, 0, -19, 14, 4};
+//        int[] arr = {3,1,7,11};
         System.out.println(checkExitOrNot(arr));
         System.out.println(checkExit(arr));
+        System.out.println(check(arr));
+    }
+
+    // optimised code... using HashMap
+    public static boolean check(int[] arr) {
+        Set<Integer> set = new HashSet<>();
+        for(int i : arr) {
+            if (set.contains(2 * i) || set.contains(i / 2 == 0 && set.contains(i/2))) {
+                return true;
+            }
+            set.add(i);
+        }
+        return false;
     }
 
     // Noob bruteforce code...
