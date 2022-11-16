@@ -1,5 +1,17 @@
 package com.Sachin.BinarySearch.Hard;
 
+
+// Given the sorted rotated array nums that may contain duplicates, return the minimum element of this array.
+//You must decrease the overall operation steps as much as possible.
+
+//Example 1:
+//Input: nums = [1,3,5]
+//Output: 1
+
+//Example 2:
+//Input: nums = [2,2,2,0,1]
+//Output: 0
+
 public class FindMin {
     public static void main(String[] args) {
         int[] arr = {2,2,2,0,1};
