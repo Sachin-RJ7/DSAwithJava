@@ -23,6 +23,7 @@ public class findDuplicateNumber {
     public static void main(String[] args) {
         int[] nums = {8,1,1,9,5,4,2,7,3,6};
         System.out.println(findDuplicate(nums));
+        System.out.println(findDuplicateNum(nums));
     }
 
     public static int findDuplicate(int[] nums) {
@@ -60,6 +61,24 @@ public class findDuplicateNumber {
 
 
 
+    }
+
+    public static int findDuplicateNum(int[] arr) {
+        int slow = arr[0];
+        int fast = arr[0];
+
+        do {
+            slow = arr[slow];
+            fast = arr[arr[fast]];
+        }while (slow != fast);
+
+        fast = arr[0];
+
+        while (slow != fast) {
+            slow = arr[slow];
+            fast = arr[fast];
+        }
+        return slow;
     }
 
 }
