@@ -1,6 +1,8 @@
 package com.Sachin.BinarySearch.Easy;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 // About Question
 // https://leetcode.com/problems/two-sum/
@@ -41,10 +43,32 @@ public class TwoSum {
         return ans;
     }
 
+
+    // Optimised Code
+    public static int[] twoSumPair(int nums[], int target) {
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            // get the complement using the target value
+            int complement = target - nums[i];
+
+            // search in the hashmap for complement, if found, we got our answer
+            if(map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+
+            //if not found, put the element in hashmap for subsequent searches
+            map.put(nums[i], i);
+        }
+
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
+
     public static void main(String[] args) {
         int[] arr = {2,7,11,15};
         int target = 9;
 
         System.out.println(Arrays.toString(twoSum(arr, target)));
+        System.out.println(Arrays.toString(twoSumPair(arr, target)));
     }
 }
