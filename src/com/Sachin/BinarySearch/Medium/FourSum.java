@@ -38,7 +38,7 @@ public class FourSum {
         for (int i = 0; i < nums.length-3; i++) {
             for (int j = i + 1; j < nums.length-2; j++) {
 
-                long target2 = (long) target - (long) nums[i] - (long) nums[j];
+                long target2 = (long) target - ((long) nums[i] + (long) nums[j]);
                 int left = j + 1, right = n - 1;
 
                 while (left < right) {
