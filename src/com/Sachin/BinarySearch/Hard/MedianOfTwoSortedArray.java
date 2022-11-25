@@ -20,11 +20,60 @@ import java.util.Arrays;
 
 public class MedianOfTwoSortedArray {
     public static void main(String[] args) {
-        int[] nums1 = {1, 2};
-        int[] nums2 = {3, 4};
+        int[] nums1 = {3, 5, 7, 10, 15};
+        int[] nums2 = {2, 4, 12};
         System.out.println(findMedianSortedArrays(nums1,nums2));
         System.out.println(findMedianSortedArrays2(nums1,nums2));
+        System.out.println(medianOfTwoSortedArrays(nums1,nums2));
     }
+
+    // optimised code
+    public static double medianOfTwoSortedArrays(int[] nums1, int[] nums2) {
+        int length = nums1.length + nums2.length;
+        int[] merged = new int[length];
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while(i < nums1.length && j < nums2.length) {
+            if (nums1[i] < nums2[j]) {
+                merged[k] = nums1[i];
+                i++;
+                k++;
+            }
+            else {
+                merged[k] = nums2[j];
+                j++;
+                k++;
+            }
+        }
+
+        while (i < nums1.length) {
+            merged[k] = nums1[i];
+            i++;
+            k++;
+        }
+
+        while (j < nums2.length) {
+            merged[k] = nums2[j];
+            j++;
+            k++;
+        }
+
+        double median = 0.0;
+        int mid = merged.length / 2;
+        if (merged.length % 2 == 1) {
+            median = merged[mid];
+        }
+        else{
+            median = (merged[mid] + merged[mid - 1]) / 2.0;
+        }
+
+        return median;
+
+    }
+
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int n1=nums1.length;
         int n2=nums2.length;
