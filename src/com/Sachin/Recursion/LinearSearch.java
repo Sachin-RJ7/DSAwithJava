@@ -9,12 +9,14 @@ public class LinearSearch {
         System.out.println(find(arr, target, 0));
         System.out.println(findTarget(arr, target, 0));
         System.out.println(findTargetLast(arr, target, arr.length-1));
-        
+
         findAllTarget(arr, target, 0);
         System.out.println(list);
 
         ArrayList<Integer> ans = findAllTarget2(arr, target, 0, new ArrayList<>());
         System.out.println(ans);
+
+        System.out.println(findAllTarget3(arr, target, 0));
     }
 
     public static boolean find(int[] arr, int target, int index){
@@ -76,5 +78,27 @@ public class LinearSearch {
 
         return findAllTarget2(arr, target, index+1, list);
     }
+
+    // not optimised, don't use mostly
+    public static ArrayList<Integer> findAllTarget3(int[] arr, int target, int index) {
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        if (index == arr.length){
+            return list;
+        }
+
+        // this will contain answer for that function call only
+        if (arr[index] == target){
+            list.add(index);
+        }
+
+        ArrayList<Integer> ansFromBelowCalls = findAllTarget3(arr, target, index + 1);
+
+        list.addAll(ansFromBelowCalls);
+
+        return list;
+    }
+
 
 }
