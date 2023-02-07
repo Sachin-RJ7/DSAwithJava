@@ -8,8 +8,8 @@ public class RelativeSortArray {
 
     }
 
-//    public int[] relativeSortArray(int[] arr1, int[] arr2) {
-//        Map<Integer,Integer> map = new  HashMap<>();
-//
-//    }
+    public int[] relativeSortArray(int[] arr1, int[] arr2) {
+        Map<Integer,Integer> map = new  HashMap<>();
+
+    }
 }
