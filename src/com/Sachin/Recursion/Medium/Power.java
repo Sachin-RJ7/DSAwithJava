@@ -1,5 +1,8 @@
 package com.Sachin.Recursion.Medium;
 
+// Understand this question from below link :
+// https://leetcode.com/problems/powx-n/solutions/1337794/java-c-simple-o-log-n-easy-faster-than-100-explained/
+
 public class Power {
     public static void main(String[] args) {
         System.out.println(pow(2.00000, 10));
