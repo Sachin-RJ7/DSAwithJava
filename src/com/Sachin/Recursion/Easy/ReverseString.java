@@ -6,6 +6,9 @@ public class ReverseString {
     public static void main(String[] args) {
         char[] s = { 'h', 'e', 'l', 'l', '0' };
         PrintReverseString(s);
+
+        reverseString(s);
+        System.out.println(s);
     }
 
     public static void PrintReverseString(char[] s) {
@@ -23,5 +26,26 @@ public class ReverseString {
         }
 
          helper(s, i, --j);
+    }
+
+
+    public static void reverseString(char[] s){
+        int i = 0;
+        int j = s.length - 1;
+
+        solve(s, i, j);
+    }
+
+    public static void solve(char[] s, int i, int j){
+        if (i >= j){
+            return;
+        }
+
+        char temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+
+        solve(s, ++i, --j);
+
     }
 }
