@@ -2,12 +2,18 @@ package com.Sachin.Recursion.Easy;
 
 // https://leetcode.com/problems/reverse-string/description/
 
+import java.util.Stack;
+
 public class ReverseString {
     public static void main(String[] args) {
         char[] s = { 'h', 'e', 'l', 'l', '0' };
         PrintReverseString(s);
 
         reverseString(s);
+        System.out.println(s);
+
+        // using stack
+        reverseTheString(s);
         System.out.println(s);
     }
 
@@ -47,5 +53,19 @@ public class ReverseString {
 
         solve(s, ++i, --j);
 
+    }
+
+    // reversing the string using Stack
+    public static void reverseTheString(char[] s){
+        Stack<Character> st = new Stack<>();
+        String str = new String(s);
+        for(int i = 0; i < str.length(); i++){
+            st.push(s[i]);
+        }
+
+        int i = 0;
+        while(st.size() > 0){
+            s[i++] = st.pop();
+        }
     }
 }
