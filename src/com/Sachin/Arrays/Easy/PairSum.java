@@ -2,6 +2,8 @@ package com.Sachin.Arrays.Easy;
 
 import java.util.*;
 
+// https://www.codingninjas.com/codestudio/problems/pair-sum_697295
+
 public class PairSum {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
